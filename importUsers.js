@@ -74,7 +74,12 @@ db.once("open", function() {
             'Sign-up - Complete': user.created.toISOString(),
             'Sign-up - Start': user.created.toISOString(),
             'Role': user.role,
-            'Client': user.company.name
+            'Client': user.company.name,
+            'Invitations - From SpendLead': false,
+            'Invitations - From Buyer': false,
+            'Invitations - From Marketer': false,
+            'Invitations - From Inside': false,
+            'Invitations - From Outside': false
           }
         };
 
