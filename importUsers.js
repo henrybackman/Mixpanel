@@ -36,19 +36,6 @@ db.once("open", function() {
 
   var User = mongoose.model("User", userSchema);
 
-// {
-//     "$token": "36ada5b10da39a1347559321baf13063",
-//     "$distinct_id": "13793",
-//     "$set": {
-//         "$first_name": "David",
-//         "$last_name": "Jones",
-//         "$email": "aladdin.sane@example.com",
-//         "$created": "2013-04-01T13:20:00"
-//     }
-// }
-
-
-
 
   User.find({status: 'active'})
     .exec(function (err, users) {
@@ -84,7 +71,8 @@ db.once("open", function() {
             '$first_name': user.firstName,
             '$last_name': user.lastName,
             '$email': user.email,
-            '$created': user.created.toISOString(),
+            'Sign-up - Complete': user.created.toISOString(),
+            'Sign-up - Start': user.created.toISOString(),
             'Role': user.role,
             'Client': user.company.name
           }
@@ -98,28 +86,3 @@ db.once("open", function() {
 });
 
 
-// var distinct_id = '571dbab4f449bc194017ab67';
-// var eventName = 'Clicked a post';
-
-
-
-// console.log("event object:", event);
-
-// var base64properties = new Buffer(JSON.stringify(event)).toString("base64");
-
-// var targetUrl = "http://api.mixpanel.com/import/";
-// var dataPart = "?data=" + base64properties;
-// var apiKeyPart = "&api_key=" + apiKey;
-// var fullImportRequest = targetUrl + dataPart + apiKeyPart;
-
-// console.log(fullImportRequest);
-
-// function reqCallback(error, response, body) {
-//   console.log('reqCallback');
-//   console.log('error', error);
-//   console.log('body', body);
-// }
-
-// request(fullImportRequest, reqCallback);
-
-// process.exit(-1);
